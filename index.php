@@ -4,7 +4,7 @@ include('app/config.php');
 
 session_start();
 if (isset ($_SESSION['sesion_email'])){
-  echo "si existesesion".$_SESSION['sesion_email'];
+  echo "si existesesion  " .$_SESSION['sesion_email'];
 }else{
   echo "no existe seion";
   header('Location: '.$URL.'/login/login.php');
@@ -266,6 +266,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
+
+    <a href="<?php echo $URL;?>/app/controllers/login/cerrar_sesion.php" class="btn btn-danger">Cerrar Sesión</a>
 
     <!-- Main content -->
     <div class="content">
