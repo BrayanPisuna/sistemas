@@ -6,7 +6,7 @@ $contrasena = '';
 try {
    $conn = new PDO($hostname, $usuario, $contrasena);
    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   echo 'Conexión exitosa';
+   echo 'Conexión exitosa David';
 } catch(PDOException $err) {
    echo "ERROR: No se pudo conectar a la base de datos: " . $err->getMessage();
 }
