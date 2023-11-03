@@ -10,4 +10,12 @@ try {
 } catch(PDOException $err) {
    echo "ERROR: No se pudo conectar a la base de datos: " . $err->getMessage();
 }
+
+$URL="http://localhost/sistemas";
+
+
+
+
+
 ?>
+

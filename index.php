@@ -1,3 +1,17 @@
+<?php
+
+include('app/config.php');
+
+session_start();
+if (isset ($_SESSION['sesion_email'])){
+  echo "si existesesion".$_SESSION['sesion_email'];
+}else{
+  echo "no existe seion";
+  header('Location: '.$URL.'/login/login.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from

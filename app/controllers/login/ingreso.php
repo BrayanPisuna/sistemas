@@ -23,8 +23,13 @@ if($contador ==0){
 
 }else{
     echo"Datos Correctos";
+
+    session_start();
+    $_SESSION['sesion_email']=$email;
+    header('Location: '.$URL.'/index.php');
+
+
+
 }
-
-
 ?>
 
