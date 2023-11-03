@@ -20,6 +20,9 @@ foreach($usuarios as $usuario){
 
 if($contador ==0){
     echo"Datos incorrectos vuelva a intentarlo";
+    session_start();
+    $_SESSION['mensaje']="Error datos incorrectos";
+    header('Location: ' . $URL . '/login/login.php');
 
 }else{
     echo"Datos Correctos";
