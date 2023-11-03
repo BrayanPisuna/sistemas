@@ -1,7 +1,7 @@
 <?php
-$hostname = 'mysql:dbname=nombre_base_datos;host=localhost';
-$usuario = 'nombre_usuario';
-$contrasena = 'contraseña';
+$hostname = 'mysql:dbname=equipos;host=localhost';
+$usuario = 'root';
+$contrasena = '';
 
 try {
    $conn = new PDO($hostname, $usuario, $contrasena);
