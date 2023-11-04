@@ -16,9 +16,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo $URL;?>/public/templeates/Admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $URL;?>/public/templeates/Admin/dist/css/adminlte.min.css">
+
   <!-- Libreria sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
 </head>
 
