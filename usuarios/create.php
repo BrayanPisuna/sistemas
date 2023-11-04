@@ -3,7 +3,6 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
-
 ?>
 
 
@@ -43,19 +42,19 @@ include('../layout/parte1.php');
                     <form action="../app/controllers/usuarios/create.php" method="post">
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="Nombre" >
+                            <input type="text" class="form-control" name="nombres" aria-describedby="Nombre" >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email Empresarial</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" >
+                            <input type="password" name="password_user" class="form-control"  >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Verificar Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2">
+                            <input type="password" name="password_repeat" class="form-control" ">
                         </div>
                         <button type="submit" class="btn btn-primary">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Guardar</button>

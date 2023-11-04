@@ -13,6 +13,7 @@ try {
 
 $URL="http://localhost/sistemas";
 
+date_default_timezone_set("America/Guayaquil");
 
 
 
