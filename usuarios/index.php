@@ -1,8 +1,8 @@
 <?php
 
-include('app/config.php');
-include('layout/sesion.php');
-include('layout/parte1.php');
+include('../app/config.php');
+include('../layout/sesion.php');
+include('../layout/parte1.php');
 
 ?>
 
@@ -15,7 +15,7 @@ include('layout/parte1.php');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Bienvenido al Sistema</h1>
+              <h1 class="m-0">Lista de Usuarios</h1>
             </div><!-- /.col -->
            
           </div><!-- /.row -->
@@ -39,6 +39,6 @@ include('layout/parte1.php');
 
 <?php
 
-include('layout/parte2.php');
+include('../layout/parte2.php');
 
 ?>
