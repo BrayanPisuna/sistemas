@@ -15,27 +15,5 @@ $URL="http://localhost/sistemas";
 
 date_default_timezone_set("America/Guayaquil");
 
-
-if( isset($_SESSION['mensaje_error'])){
-
-   $respuesta = $_SESSION['mensaje_error'];
-   ?>
-   <script>
-     Swal.fire({
-       position: 'top-center',
-       icon: 'error',
-       title: '<?php echo $respuesta;?>',
-       showConfirmButton: false,
-       timer: 3500
-     })
-     </script>
- <?php
-   unset($_SESSION['mensaje_error']);
-
-}
-
-
-
-
 ?>
 
