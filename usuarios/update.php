@@ -70,11 +70,11 @@ if( isset($_SESSION['mensaje_error'])){
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Contraseña</label>
-                            <input type="password" name="password_user" class="form-control" require> 
+                            <input type="password" name="password_user" class="form-control" require minlength="3" maxlength="13">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Verificar Contraseña</label>
-                            <input type="password" name="password_repeat" class="form-control" require>
+                            <input type="password" name="password_repeat" class="form-control" require minlength="3" maxlength="13">
                         </div>
                         <a href="index.php" class="btn btn-primary">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Actulizar</button>
