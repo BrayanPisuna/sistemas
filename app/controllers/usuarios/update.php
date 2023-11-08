@@ -18,18 +18,18 @@ if ($password_user == $password_repeat) {
     WHERE id_usuario = :id_usuario");
 
     // Vincular los valores a los marcadores de posición
+    $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
     $sentencia->bindParam(':nombres', $nombres, PDO::PARAM_STR);
     $sentencia->bindParam(':email', $email, PDO::PARAM_STR);
     $sentencia->bindParam(':password_user', $password_repeat, PDO::PARAM_STR); // Usar $password_repeat
-    $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
     // Ejecutar la sentencia
     $sentencia->execute();
     session_start();
-    $_SESSION['mensaje']="Usuario Actulizado";
+    $_SESSION['mensaje_exito']="Usuario Actulizado";
     header('Location:'.$URL.'/usuarios/');
 } else {
     session_start();
-    $_SESSION['mensaje']="Error las contraseñas no son iguales";
+    $_SESSION['mensaje_error']="Error las contraseñas no son iguales";
     header('Location:'.$URL.'/usuarios/update.php?id='.$id_usuario);
 
 }

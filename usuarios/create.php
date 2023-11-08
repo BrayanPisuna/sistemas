@@ -4,9 +4,24 @@ include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
 
+if( isset($_SESSION['mensaje_error'])){
+
+    $respuesta = $_SESSION['mensaje_error'];
+    ?>
+    <script>
+      Swal.fire({
+        position: 'top-center',
+        icon: 'error',
+        title: '<?php echo $respuesta;?>',
+        showConfirmButton: false,
+        timer: 3500
+      })
+      </script>
+  <?php
+    unset($_SESSION['mensaje_error']);
+
+}
 ?>
-
-
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
