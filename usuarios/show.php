@@ -3,7 +3,7 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
-
+include('../app/controllers/usuarios/show_usuario.php');
 ?>
 
 
@@ -40,26 +40,18 @@ include('../layout/parte1.php');
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body" style="display: block;">
-                    <form action="../app/controllers/usuarios/create.php" method="post">
+                    
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" class="form-control" name="nombres" aria-describedby="Nombre" required >
+                            <input type="text" class="form-control" name="nombres" value="<?php echo $nombres;?>"  aria-describedby="Nombre" disabled >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email Empresarial</label>
-                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
+                            <input type="email" class="form-control" name="email" value="<?php echo $email;?>" aria-describedby="emailHelp" disabled>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Contraseña</label>
-                            <input type="password" name="password_user" class="form-control"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Verificar Contraseña</label>
-                            <input type="password" name="password_repeat" class="form-control" required>
-                        </div>
-                        <a href="index.php" class="btn btn-primary">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </form>
+                        <a href="index.php" class="btn btn-primary">Volver  </a>
+                        
+                    
 
 
                 </div>

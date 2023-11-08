@@ -62,16 +62,28 @@ if( isset( $_SESSION['mensaje_exito'])){
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $contador =0;
-                            foreach($usuarios_datos as $usuarios_datos){?>
+                            foreach($usuarios_datos as $usuarios_datos){
+                                
+                                $id_usuario =$usuarios_datos['id_usuario'];?>
                             <tr>
                                 <td><?php echo $contador = $contador+1;?></td>
                                 <td><?php echo $usuarios_datos['usu_nombres'];?></td>
                                 <td><?php echo $usuarios_datos['usu_email'];?></td>
+                                <td>
+                                    <center>
+                                    <div class="btn-group">
+                                    <a href="show.php?id=<?php echo $id_usuario;?>" class="btn  bg-info"><i class="fas fa-eye"></i> Ver</a>
+                                    <a class="btn  bg-success" ><i class="fas fa-edit"></i> Editar</a>
+                                    <a class="btn  bg-danger"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</a>
+                                    </center>
+                                    </div>
+                                </td>
                             </tr>
                             <?php
                             }                            
@@ -99,7 +111,7 @@ include('../layout/parte2.php');
 <script>
   $(function () {
     $("#tableusuarios").DataTable({
-        "pageLength":5,
+        
           "language": {
               "emptyTable": "No hay información",
               "decimal": "",
@@ -121,7 +133,32 @@ include('../layout/parte2.php');
               }
              },
       "responsive": true, "lengthChange": true, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      buttons: [{
+                extend: 'collection',
+                text: 'Reportes',
+                orientation: 'landscape',
+                buttons: [{
+                    text: 'copiar',
+                    extend: 'copy',
+                }, {
+                    extend: 'pdf',
+                }, {
+                    extend: 'csv',
+                }, {
+                    extend: 'excel',
+                }, {
+                    text: 'Imprimir',
+                    extend: 'print'
+                }
+            ]
+            },
+            {
+                extend: 'colvis',
+                text: 'Vista de Columna',
+                collectionLayout: 'fixed three-column'
+            }
+
+        ],
     }).buttons().container().appendTo('#tableusuarios_wrapper .col-md-6:eq(0)');
   });
 </script>
