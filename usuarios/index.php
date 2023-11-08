@@ -56,7 +56,7 @@ if( isset( $_SESSION['mensaje_exito'])){
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body" style="display: block;">
-                    <table class="table">
+                    <table id="tableusuarios" class="table table-bordered table-striped"> 
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
@@ -90,11 +90,19 @@ if( isset( $_SESSION['mensaje_exito'])){
 </div>
 <!-- /.content-wrapper -->
 
-
-
-
 <?php
 
 include('../layout/parte2.php');
 
 ?>
+
+
+<script>
+  $(function () {
+    $("#tableusuarios").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#tableusuarios_wrapper .col-md-6:eq(0)');
+    
+  });
+</script>
