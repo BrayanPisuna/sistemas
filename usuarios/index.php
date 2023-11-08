@@ -18,7 +18,7 @@ if( isset( $_SESSION['mensaje_exito'])){
       })
       </script>
   <?php
-    unset($_SESSION['mensaje_error']);
+    unset($_SESSION['mensaje_exito']);
 
 }
 ?>
