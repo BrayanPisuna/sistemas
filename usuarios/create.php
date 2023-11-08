@@ -3,6 +3,24 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
+
+if( isset($_SESSION['mensaje_error'])){
+
+    $respuesta = $_SESSION['mensaje_error'];
+    ?>
+    <script>
+      Swal.fire({
+        position: 'top-center',
+        icon: 'error',
+        title: '<?php echo $respuesta;?>',
+        showConfirmButton: false,
+        timer: 3500
+      })
+      </script>
+  <?php
+    unset($_SESSION['mensaje_error']);
+
+}
 ?>
 
 
@@ -42,21 +60,21 @@ include('../layout/parte1.php');
                     <form action="../app/controllers/usuarios/create.php" method="post">
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" class="form-control" name="nombres" aria-describedby="Nombre" >
+                            <input type="text" class="form-control" name="nombres" aria-describedby="Nombre" required >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email Empresarial</label>
-                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Contraseña</label>
-                            <input type="password" name="password_user" class="form-control"  >
+                            <input type="password" name="password_user" class="form-control"  required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Verificar Contraseña</label>
-                            <input type="password" name="password_repeat" class="form-control" ">
+                            <input type="password" name="password_repeat" class="form-control" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Cancelar</button>
+                        <a href="index.php" class="btn btn-primary">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
 

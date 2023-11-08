@@ -4,6 +4,23 @@ include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
 include('../app/controllers/usuarios/listado_usuarios.php');
+
+if( isset( $_SESSION['mensaje_exito'])){
+    $respuesta = $_SESSION['mensaje_exito'];
+    ?>
+    <script>
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: '<?php echo $respuesta;?>',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      </script>
+  <?php
+    unset($_SESSION['mensaje_error']);
+
+}
 ?>
 
 
@@ -49,9 +66,10 @@ include('../app/controllers/usuarios/listado_usuarios.php');
                         </thead>
                         <tbody>
                             <?php
+                            $contador =0;
                             foreach($usuarios_datos as $usuarios_datos){?>
                             <tr>
-                                <td><?php echo $usuarios_datos['id_usuario'];?></td>
+                                <td><?php echo $contador = $contador+1;?></td>
                                 <td><?php echo $usuarios_datos['usu_nombres'];?></td>
                                 <td><?php echo $usuarios_datos['usu_email'];?></td>
                             </tr>
