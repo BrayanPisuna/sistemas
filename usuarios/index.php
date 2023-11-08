@@ -80,7 +80,7 @@ if( isset( $_SESSION['mensaje_exito'])){
                                     <div class="btn-group">
                                     <a href="show.php?id=<?php echo $id_usuario;?>" class="btn  bg-info"><i class="fas fa-eye"></i> Ver</a>
                                     <a href="update.php?id=<?php echo $id_usuario;?>" class="btn  bg-success" ><i class="fas fa-edit"></i> Editar</a>
-                                    <a class="btn bg-danger"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</a>
+                                    <a href="delete.php?id=<?php echo $id_usuario;?>" class="btn bg-danger"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</a>
                                     </center>
                                     </div>
                                 </td>

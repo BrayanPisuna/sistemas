@@ -62,19 +62,19 @@ if( isset($_SESSION['mensaje_error'])){
                         <input type="text" name="id_usuario" value="<?php echo $id_usuario_get;?>" hidden >  
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" class="form-control" name="nombres" value="<?php echo $nombres;?>" aria-describedby="Nombre">
+                            <input type="text" class="form-control" name="nombres" value="<?php echo $nombres;?>" aria-describedby="Nombre" require>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email Empresarial</label>
-                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp"  value="<?php echo $email;?>">
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp"  value="<?php echo $email;?>" require>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Contraseña</label>
-                            <input type="password" name="password_user" class="form-control">
+                            <input type="password" name="password_user" class="form-control" require> 
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Verificar Contraseña</label>
-                            <input type="password" name="password_repeat" class="form-control">
+                            <input type="password" name="password_repeat" class="form-control" require>
                         </div>
                         <a href="index.php" class="btn btn-primary">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Actulizar</button>
