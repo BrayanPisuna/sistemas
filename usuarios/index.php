@@ -14,7 +14,7 @@ if( isset( $_SESSION['mensaje_exito'])){
         icon: 'success',
         title: '<?php echo $respuesta;?>',
         showConfirmButton: false,
-        timer: 1500
+        timer: 3500
       })
       </script>
   <?php
