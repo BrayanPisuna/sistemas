@@ -86,6 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+            <!-- USUARIOS -->
             <li class="nav-item">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-user"></i>
@@ -109,6 +110,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </li>
               </ul>
             </li>
+            <!-- ROLES -->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-address-book"></i>
+                <p>
+                  ROLES
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?php echo $URL;?>/roles" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Listado de Roles</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo $URL;?>/roles/create.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Creacion de Roles</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
