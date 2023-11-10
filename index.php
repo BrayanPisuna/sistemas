@@ -4,6 +4,7 @@ include('app/config.php');
 include('layout/sesion.php');
 include('layout/parte1.php');
 include('app/controllers/usuarios/listado_usuarios.php');
+include('app/controllers/usuarios/listado_roles.php');
 
 ?>
 
@@ -60,20 +61,20 @@ include('app/controllers/usuarios/listado_usuarios.php');
             <div class="small-box bg-warning">
               <div class="inner">
                 <?php
-                $contador_usuarios =0;
-                foreach($usuarios_datos as $usuarios_dato){
-                  $contador_usuarios = $contador_usuarios+1;
+                $contador_roles =0;
+                foreach($roles_datos as $roles_dato){
+                  $contador_roles = $contador_roles+1;
                 }                
                 ?>
-                <h3><?php echo $contador_usuarios;?></h3>
+                <h3><?php echo $contador_roles;?></h3>
 
-                <p>Usuarios Registrados</p>
+                <p>Roles Registrados</p>
               </div>
-              <a href="<?php echo $URL; ?>/usuarios">
+              <a href="<?php echo $URL; ?>/roles/create.php">
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?php echo $URL; ?>/usuarios" class="small-box-footer">
+              <a href="<?php echo $URL; ?>/roles" class="small-box-footer">
                 Más Detalle <i class="fas fa-arrow-circle-right"></i>
               </a>
             </div>
