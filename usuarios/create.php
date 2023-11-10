@@ -3,6 +3,7 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
+include('../app/controllers/roles/listado_roles.php');
 
 if( isset($_SESSION['mensaje_error'])){
 
@@ -63,6 +64,18 @@ if( isset($_SESSION['mensaje_error'])){
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email Empresarial</label>
                             <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
+                        </div> 
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Rol del Usuario</label>
+                            <select name="rol" id="" class="form-control">
+                               <?php foreach ($roles_datos as $roles_dato){?>
+                                <option value="<?php echo $roles_dato['id_rol'];?>">
+                                               <?php echo $roles_dato['rol'];?>
+                               </option>
+                                <?php
+                               }
+                                ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Contraseña</label>

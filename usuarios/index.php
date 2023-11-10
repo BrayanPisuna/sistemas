@@ -62,6 +62,7 @@ if( isset( $_SESSION['mensaje_exito'])){
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Rol del Usuario</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
@@ -75,6 +76,7 @@ if( isset( $_SESSION['mensaje_exito'])){
                                 <td><?php echo $contador = $contador+1;?></td>
                                 <td><?php echo $usuarios_datos['usu_nombres'];?></td>
                                 <td><?php echo $usuarios_datos['usu_email'];?></td>
+                                <td><?php echo $usuarios_datos['rol'];?></td>
                                 <td>
                                     <center>
                                     <div class="btn-group">

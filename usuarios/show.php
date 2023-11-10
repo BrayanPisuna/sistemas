@@ -49,6 +49,10 @@ include('../app/controllers/usuarios/show_usuario.php');
                             <label for="exampleInputEmail1">Email Empresarial</label>
                             <input type="email" class="form-control" name="email" value="<?php echo $email;?>" aria-describedby="emailHelp" disabled>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Rol del Usuario</label>
+                            <input type="text" class="form-control" name="rol" value="<?php echo $rol;?>" aria-describedby="emailHelp" disabled>
+                        </div>
                         <a href="index.php" class="btn btn-primary">Volver  </a>
                         
                     
