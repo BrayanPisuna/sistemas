@@ -4,6 +4,7 @@ include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
 include('../app/controllers/usuarios/update_usuario.php');
+include('../app/controllers/roles/listado_roles.php');
 
 if( isset($_SESSION['mensaje_error'])){
 
@@ -67,6 +68,27 @@ if( isset($_SESSION['mensaje_error'])){
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email Empresarial</label>
                             <input type="email" class="form-control" name="email" aria-describedby="emailHelp"  value="<?php echo $email;?>" require>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Rol del Usuario</label>
+                            <select name="rol" id="" class="form-control">
+                               
+                            <?php foreach ($roles_datos as $roles_dato){
+                                $rol_tabla =$roles_dato['rol'];
+                                $id_rol =$roles_dato['id_rol'];
+                                ?>
+                                <option value="<?php echo $id_rol;?>"
+                                <?php
+                                    if($rol_tabla == $rol) {?>
+                                    selected="selected"
+                                    <?php } 
+                                    ?>>
+                                    <?php echo $roles_dato['rol'];?>
+                               </option>
+                                <?php
+                               }
+                                ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Contraseña</label>

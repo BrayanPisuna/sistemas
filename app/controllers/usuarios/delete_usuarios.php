@@ -1,6 +1,5 @@
 <?php
 
-
 include('../../config.php');
     
     $id_usuario = $_POST['id_usuario'];

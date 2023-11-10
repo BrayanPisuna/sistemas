@@ -59,7 +59,7 @@ if( isset( $_SESSION['mensaje_exito'])){
                 <div class="card-body" style="display: block;">
 
                     <form action="../app/controllers/usuarios/delete_usuarios.php" method="post">
-                        <input type="text" value="<?php echo $id_usuario_get;?>" hidden name="id_usuario">
+                        <input type="text" name="id_usuario" value="<?php echo $id_usuario_get;?>" hidden>
                         <div class="form-group">
                             <label>Nombres</label>
                             <input type="text" class="form-control" name="nombres" value="<?php echo $nombres; ?>" aria-describedby="Nombre" disabled>
@@ -67,6 +67,10 @@ if( isset( $_SESSION['mensaje_exito'])){
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email Empresarial</label>
                             <input type="email" class="form-control" name="email" value="<?php echo $email; ?>" aria-describedby="emailHelp" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Rol de usuario</label>
+                            <input type="text" class="form-control" name="email" value="<?php echo $rol; ?>" aria-describedby="emailHelp" disabled>
                         </div>
                         <div class="form-group">
                             <a href="index.php" class="btn btn-primary">Volver </a>
