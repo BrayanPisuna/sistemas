@@ -4,7 +4,7 @@ include('app/config.php');
 include('layout/sesion.php');
 include('layout/parte1.php');
 include('app/controllers/usuarios/listado_usuarios.php');
-include('app/controllers/usuarios/listado_roles.php');
+include('app/controllers/roles/listado_roles.php');
 
 ?>
 
