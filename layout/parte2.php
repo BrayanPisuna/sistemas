@@ -22,12 +22,12 @@
 
   <!-- REQUIRED SCRIPTS -->
 
-  <!-- jQuery -->
-  <script src="<?php echo $URL;?>/public/templeates/Admin/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="<?php echo $URL;?>/public/templeates/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="<?php echo $URL;?>/public/templeates/Admin/dist/js/adminlte.min.js"></script>
+
+  
 
   <!-- DataTables  & Plugins -->
 <script src="<?php echo $URL;?>/public/templeates/Admin/plugins/datatables/jquery.dataTables.min.js"></script>

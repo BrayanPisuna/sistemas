@@ -20,6 +20,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Libreria sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+   <!-- jQuery -->
+   <script src="<?php echo $URL;?>/public/templeates/Admin/plugins/jquery/jquery.min.js"></script>
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo $URL; ?>/public/templeates/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo $URL; ?>/public/templeates/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
