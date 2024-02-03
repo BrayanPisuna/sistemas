@@ -15,7 +15,7 @@ include('app/controllers/roles/listado_roles.php');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Bienvenido al Sistema</h1>
+              <h1 class="m-0">Bienvenido al Sistema - <?php echo $rol_sesion?> </h1>
             </div><!-- /.col -->
            
           </div><!-- /.row -->
