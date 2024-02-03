@@ -75,7 +75,7 @@ if( isset( $_SESSION['mensaje_exito'])){
                                 $id_rol =$categorias_datos['id_categoria'];?>
                             <tr>
                                 <td><?php echo $contador = $contador+1;?></td>
-                                <td><?php echo $categorias_datos['cat_nombre'];?></td>
+                                <td><?php echo $categorias_datos['nombre_categoria'];?></td>
                                 <td>
                                     <center>
                                     <div class="btn-group">
@@ -177,15 +177,32 @@ include('../layout/parte2.php');
             <div class="modal-body">
                 <div class="row">
                     <label for="">Nombre de la Categoría</label>
-                    <input type="text" class="form-control"></input>
+                    <input type="text" class="form-control" id="nombre_categoria"></input>
                 </div>      
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Descartar</button>
+              <button type="button" class="btn btn-primary" id="btn_create">Agregar</button>
+              <div id="respuesta"></div>
             </div>
           </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
 </div>
+
+<script>
+    $('#btn_create').click(function () {
+        //alert ("OK");
+        var nombre_categoria = $('#nombre_categoria').val();
+        //alert (nombre_categoria);
+        var datos = {
+            nombre_categoria: nombre_categoria
+        };
+        var url = "../app/controllers/categorias/registro_categorias.php";
+        $.post(url, datos, function (respuesta) {
+            //alert ("Fue al controlador")
+            $('#respuesta').html(respuesta);
+        });
+    });
+</script>
