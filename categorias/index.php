@@ -58,77 +58,75 @@ if( isset( $_SESSION['mensaje_exito'])){
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-            <table id="tableusuarios" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nro</th>
-                            <th>Nombre Categoria</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $contador = 0;
-                        foreach ($categorias_datos as $categorias_dato) {
-                            $id_categoria = $categorias_dato['id_categoria'];
-                            $nombre_categoria = $categorias_dato['nombre_categoria'];
-                            $contador++;
-                        ?>
-                        <tr>
-                            <td><?= $contador ?></td>
-                            <td><?= $nombre_categoria ?></td>
-                            <td>
-                                <center>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn bg-success" data-toggle="modal" data-target="#modal-update<?= $id_categoria ?>">
-                                            <i class="fas fa-edit"></i> Editar Categoria
-                                        </button>
-                                        <!-- MODAL PARA ACTULIZAR CATEGORIAS-->
-                                        <div class="modal fade" id="modal-update<?= $id_categoria ?>">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header" style="background-color:#000080; color:white;">
-                                                        <h4 class="modal-title">Actualizar Categoria</h4>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <label for="">Nombre de la Categoría</label>
-                                                            <input type="text" class="form-control" id="nombre_categoria<?= $id_categoria ?>" value="<?= $nombre_categoria ?>" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer justify-content-between">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Descartar</button>
-                                                        <button type="button" class="btn btn-primary" id="btn_update<?= $id_categoria ?>">Actualizar</button>
+                <table id="tableusuarios" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nro</th>
+                        <th>Nombre Categoria</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $contador = 0;
+                    foreach ($categorias_datos as $categorias_dato) {
+                        $id_categoria = $categorias_dato['id_categoria'];
+                        $nombre_categoria = $categorias_dato['nombre_categoria'];
+                        $contador++;
+                    ?>
+                    <tr>
+                        <td><?= $contador ?></td>
+                        <td><?= $nombre_categoria ?></td>
+                        <td>
+                            <center>
+                                <div class="btn-group">
+                                    <button type="button" class="btn bg-success" data-toggle="modal" data-target="#modal-update<?= $id_categoria ?>">
+                                        <i class="fas fa-edit"></i> Editar Categoria
+                                    </button>
+                                    <!-- MODAL PARA ACTULIZAR CATEGORIAS-->
+                                    <div class="modal fade" id="modal-update<?= $id_categoria ?>">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="background-color:#000080; color:white;">
+                                                    <h4 class="modal-title">Actualizar Categoria</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <label for="">Nombre de la Categoría</label>
+                                                        <input type="text" class="form-control" id="nombre_categoria<?= $id_categoria ?>" value="<?= $nombre_categoria ?>" />
                                                     </div>
                                                 </div>
-                                                <!-- /.modal-content -->
+                                                <div class="modal-footer justify-content-between">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Descartar</button>
+                                                    <button type="button" class="btn btn-primary" id="btn_update<?= $id_categoria ?>">Actualizar</button>
+                                                </div>
                                             </div>
-                                            <!-- /.modal-dialog -->
+                                            <!-- /.modal-content -->
                                         </div>
-                                        <script>
-                                            $('#btn_update<?= $id_categoria ?>').click(function() {
-                                                var nombre_categoria = $('#nombre_categoria<?= $id_categoria ?>').val();
-                                                var id_categoria = '<?= $id_categoria ?>';
-                                                var datos = {
-                                                    nombre_categoria: nombre_categoria
-                                                };
-                                                var url = "../app/controllers/categorias/update_categorias.php";
-                                                $.post(url, datos, function(respuesta) {
-                                                    //alert("Fue al controlador")
-                                                    $('#respuesta_update<?= $id_categoria ?>').html(respuesta);
-                                                });
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <script>
+                                        $('#btn_update<?= $id_categoria ?>').click(function() {
+                                            var nombre_categoria = $('#nombre_categoria<?= $id_categoria ?>').val();
+                                            var id_categoria ='<?= $id_categoria ?>';       
+                                            //alert(id_categoria);
+                                            var url = "../app/controllers/categorias/update_categorias.php";
+                                            $.get(url, {nombre_categoria:nombre_categoria, id_categoria:id_categoria}, function(datos) {
+                                               // alert(url);
+                                                $('#respuesta_update<?= $id_categoria ?>').html(datos);
                                             });
-                                        </script>
-                                        <div id="respuesta_update<?= $id_categoria ?>"></div>
-                                    </center>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-            </table>
+                                        });
+                                    </script>
+                                    <div id="respuesta_update<?= $id_categoria ?>"></div>
+                                </center>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
 </div>
                 <!-- /.card-body -->
             </div>
