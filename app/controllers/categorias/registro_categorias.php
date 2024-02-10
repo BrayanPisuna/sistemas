@@ -2,18 +2,14 @@
 
 include ('../../config.php');
 
-$id_categoria = $_POST['id_categoria'];
 $nombre_categoria = $_POST['nombre_categoria'];
 
 // Preparar la sentencia con marcadores de posición
-$sentencia = $conn->prepare("UPDATE categoria 
-                                SET nombre_categoria=:nombre_categoria
-                                WHERE id_categoria = :id_categoria");
+$sentencia = $conn->prepare("INSERT INTO categoria (nombre_categoria) 
+VALUES (:nombre_categoria)");
 
 // Vincular los valores a los marcadores de posición
 $sentencia->bindParam(':nombre_categoria', $nombre_categoria, PDO::PARAM_STR);
-$sentencia->bindParam(':id_categoria', $id_categoria, PDO::PARAM_INT);
-
 // Ejecutar la sentencia
 if ($sentencia->execute()){
     session_start();
