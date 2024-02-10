@@ -3,7 +3,8 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
-include('../app/controllers/almacen/listado_productos.php');
+
+include('../app/controllers/almacen/listar_productos.php');
 
 if( isset( $_SESSION['mensaje_exito'])){
     $respuesta = $_SESSION['mensaje_exito'];
@@ -23,8 +24,6 @@ if( isset( $_SESSION['mensaje_exito'])){
 }
 ?>
 
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -40,54 +39,73 @@ if( isset( $_SESSION['mensaje_exito'])){
     </div>
     <!-- /.content-header -->
 
+
     <!-- Main content -->
     <div class="content">
-    <div class="card-body" style="display: block;">
-                    <table id="tablaequipo" class="table table-bordered table-striped"> 
-                        <thead class="thead-dark">
+        <div class="container-fluid">
+
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Equipos Registrados</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                    <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body" style="display: block;">
+                    <table id="tableequipos" class="table table-bordered table-striped"> 
+                        <thead class="">
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Código</th>
-                                <th scope="col">Nombre</th>                                
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Stock</th>
-                                <th scope="col">Stock Mínimo</th>
-                                <th scope="col">Stock Máximo</th>
-                                <th scope="col">Fecha Ingreso</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Acción</th>                                
+                                <th><center>#</center></th>
+                                <th><center>Código</center></th>
+                                <th><center>Nombre</center></th>                                
+                                <th><center>Descripción</center></th>
+                                <th><center>Stock</center></th>
+                                <th><center>Stock Min</center></th>
+                                <th><center>Stock Max</center></th>
+                                <th><center>Fecha</center></th>
+                                <th><center>Email</center></th>
+                                <th><center>Accion</center></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $contador =0;
-                            foreach($productos_datos as $productos_datos){ ?>
+                            foreach($productos_datos as $productos_dato){?>
                                 <tr>
                                     <td> <?php echo $contador = $contador+ 1;?> </td>
-                                    <td> <?php echo $productos_datos ['alm_codigo'];?> </td>
-                                    <td> <?php echo $productos_datos ['alm_nombre'];?> </td>
-                                    <td> <?php echo $productos_datos ['alm_descripcion'];?> </td>
-                                    <td> <?php echo $productos_datos ['alm_stock'];?> </td>
-                                    <td> <?php echo $productos_datos ['alm_stockmin'];?> </td>
-                                    <td> <?php echo $productos_datos ['alm_stockmax'];?> </td>
-                                    <td> <?php echo $productos_datos ['alm_fechaingreso'];?> </td>
-                                    <td> <?php echo $productos_datos ['usu_email'];?> </td>
-                                </tr>
-                                <td>
+                                    <td> <?php echo $productos_dato ['alm_codigo'];?> </td>
+                                    <td> <?php echo $productos_dato ['alm_nombre'];?> </td>
+                                    <td> <?php echo $productos_dato ['alm_descripcion'];?> </td>
+                                    <td> <?php echo $productos_dato ['alm_stock'];?> </td>
+                                    <td> <?php echo $productos_dato ['alm_stockmin'];?> </td>
+                                    <td> <?php echo $productos_dato ['alm_stockmax'];?> </td>    
+                                    <td> <?php echo $productos_dato ['alm_fechaingreso'];?> </td>                             
+                                    <td> <?php echo $productos_dato ['usu_email'];?> </td>
+                                    <td>
                                     <center>
                                     <div class="btn-group">
-                                    
-                                    <a href="update.php?id=<?php echo $id_almacen;?>" class="btn  bg-success" ><i class="fas fa-edit"></i> Editar</a>
-                        
+                                        <a href="update.php?id=<?php echo $id_usuario;?>" class="btn  bg-success" ><i class="fas fa-edit"></i> Editar</a>
                                     </center>
                                     </div>
+                                </td>
+                                </tr>
+                                
+                            
                             <?php
                             }                            
                             ?>
                         </tbody>
                     </table>
                 </div>
-        <!-- /.container-fluid -->
+                <!-- /.card-body -->
+            </div>
+
+
+
+        </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
 </div>
@@ -101,7 +119,7 @@ include('../layout/parte2.php');
 
 <script>
   $(function () {
-    $("#tablaequipo").DataTable({
+    $("#tableequipos").DataTable({
         
           "language": {
               "emptyTable": "No hay información",
@@ -150,8 +168,6 @@ include('../layout/parte2.php');
             }
 
         ],
-    }).buttons().container().appendTo('#tableusuarios_wrapper .col-md-6:eq(0)');
+    }).buttons().container().appendTo('#tableequipos_wrapper .col-md-6:eq(0)');
   });
-
-
 </script>

@@ -97,6 +97,7 @@ if( isset( $_SESSION['mensaje_exito'])){
                                                     <div class="row">
                                                         <label for="">Nombre de la Categoría</label>
                                                         <input type="text" class="form-control" id="nombre_categoria<?= $id_categoria ?>" value="<?= $nombre_categoria ?>" />
+                                                        <small id="lbl_update" style="display: none;">Este Campo es requerido</small>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-between">
@@ -113,13 +114,20 @@ if( isset( $_SESSION['mensaje_exito'])){
                                             var nombre_categoria = $('#nombre_categoria<?= $id_categoria ?>').val();
                                             var id_categoria ='<?= $id_categoria ?>';       
                                             //alert(id_categoria);
-                                            var url = "../app/controllers/categorias/update_categorias.php";
-                                            $.get(url, {nombre_categoria:nombre_categoria, id_categoria:id_categoria}, function(datos) {
-                                               // alert(url);
-                                                $('#respuesta_update<?= $id_categoria ?>').html(datos);
-                                            });
+                                            if(nombre_categoria == ""){
+                                                $('#nombre_categoria<?= $id_categoria ?>').focus();
+                                                    $('#lbl_update<?= $id_categoria ?>').css('display','block');
+                                                    alert (nombre_categoria);
+                                            } else {
+                                                var url = "../app/controllers/categorias/update_categorias.php";
+                                                $.get(url, {nombre_categoria:nombre_categoria, id_categoria:id_categoria}, function(datos) {
+                                                // alert(url);
+                                                    $('#respuesta_update<?= $id_categoria ?>').html(datos);
+                                                });
+                                            }
                                         });
                                     </script>
+
                                     <div id="respuesta_update<?= $id_categoria ?>"></div>
                                 </center>
                             </td>
@@ -213,7 +221,8 @@ include('../layout/parte2.php');
             <div class="modal-body">
                 <div class="row">
                     <label for="">Nombre de la Categoría</label>
-                    <input type="text" class="form-control" id="nombre_categoria"></input>
+                    <input type="text" class="form-control" id="nombre_categoria" required></input>
+                    <small id="lbl_create" style="display: none;">Este Campo es requerido</small>
                 </div>      
             </div>
             <div class="modal-footer justify-content-between">
@@ -234,13 +243,21 @@ include('../layout/parte2.php');
         var datos = {
             nombre_categoria: nombre_categoria
         };
-        var url = "../app/controllers/categorias/registro_categorias.php";
-        $.post(url, datos, function (respuesta) {
-            //alert ("Fue al controlador")
-            $('#respuesta').html(respuesta);
-        });
+
+        if(nombre_categoria == ""){
+            $('#nombre_categoria').focus();
+            $('#lbl_create').css('display','block');
+            //alert (nombre_categoria);
+        } else {
+            var url = "../app/controllers/categorias/registro_categorias.php";
+            $.post(url, datos, function (respuesta) {
+                // alert (nombre_categoria); // Esta alerta es opcional, puedes eliminarla si no es necesaria
+                $('#respuesta').html(respuesta);
+            });
+        }        
     });
 </script>
+
 
 <div id="respuesta"></div>
 
